@@ -55,6 +55,12 @@ body {
   flex-direction: column;
 }
 
+.main-nav ul {
+  display: flex;
+  list-style: none; /* remove bullet points from list */
+  gap: 20px; /* Adds space between the items */
+}
+
 .main-content {
   flex: 1;
   padding: var(--spacing-lg);
