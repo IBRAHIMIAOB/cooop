@@ -56,12 +56,17 @@ body {
 }
 
 .main-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
+    display: flex;
+    list-style: none;
+    
 }
 
 .main-nav ul li{
+  margin-right: 0;
+
+}
+
+.main-nav ul li a{
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
@@ -69,7 +74,9 @@ body {
 }
 
 .main-nav ul {
-  
+    
+
+
 }
 
 .main-content {
@@ -89,6 +96,11 @@ body {
 .ltr {
   direction: ltr;
   text-align: left;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: white;
 }
 
 /* Buttons */
