@@ -1,12 +1,21 @@
 import React, { useContext } from 'react';
 import LanguageContext from '../contexts/LanguageContext';
 import translations from '../translations';
+import './Footer.css';
 
 
 const linkStyle = {
   listStyle: 'none', 
   display: 'flex',      
-  gap: '20px',         
+  gap: '15px',         
+  padding: '0',        
+  margin: '0',         
+
+};
+
+const linkItemStyle = {
+  background: 'linear-gradient(to right, #007bff, #00c6ff)',
+  color: 'white', 
   padding: '0',        
   margin: '0',         
 
@@ -33,13 +42,13 @@ const Footer: React.FC = () => {
           <div className="footer-section">
             <h3>{t.footer.links}</h3>
             <ul style={linkStyle}>
-             
-                <li><a href="/experiences">{t.footer.experiences}</a></li>
-                <li><a href="/opportunities">{t.footer.opportunities}</a></li>
-                <li><a href="/about">{t.footer.aboutUs}</a></li>
-                <li><a href="/donate">{t.footer.donate}</a></li>
-              
-              </ul>
+              <li style={linkItemStyle} className="footer-link-item"><a href="/experiences">{t.footer.experiences}</a></li>
+              <li style={linkItemStyle} className="footer-link-item"><a href="/opportunities">{t.footer.opportunities}</a></li>
+              <li style={linkItemStyle} className="footer-link-item"><a href="/about">{t.footer.aboutUs}</a></li>
+              <li style={linkItemStyle} className="footer-link-item"><a href="/donate">{t.footer.donate}</a></li>
+            </ul>
+
+          
           </div>
         </div>
         <div className="footer-bottom">
