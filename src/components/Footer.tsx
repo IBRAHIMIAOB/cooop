@@ -2,6 +2,17 @@ import React, { useContext } from 'react';
 import LanguageContext from '../contexts/LanguageContext';
 import translations from '../translations';
 
+
+const linkStyle = {
+  listStyle: 'none', 
+  display: 'flex',      
+  gap: '20px',         
+  padding: '0',        
+  margin: '0',         
+
+};
+
+
 const Footer: React.FC = () => {
   const { language } = useContext(LanguageContext);
   const t = translations[language];
@@ -21,12 +32,14 @@ const Footer: React.FC = () => {
           </div>
           <div className="footer-section">
             <h3>{t.footer.links}</h3>
-            <ul>
-              <li><a href="/experiences">{t.footer.experiences}</a></li>
-              <li><a href="/opportunities">{t.footer.opportunities}</a></li>
-              <li><a href="/about">{t.footer.aboutUs}</a></li>
-              <li><a href="/donate">{t.footer.donate}</a></li>
-            </ul>
+            <ul style={linkStyle}>
+             
+                <li><a href="/experiences">{t.footer.experiences}</a></li>
+                <li><a href="/opportunities">{t.footer.opportunities}</a></li>
+                <li><a href="/about">{t.footer.aboutUs}</a></li>
+                <li><a href="/donate">{t.footer.donate}</a></li>
+              
+              </ul>
           </div>
         </div>
         <div className="footer-bottom">
