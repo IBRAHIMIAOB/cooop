@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LanguageContext from '../contexts/LanguageContext';
-import AuthContext from '../contexts/AuthContext';
 import translations from '../translations';
 
 const Header: React.FC = () => {
   const { language, setLanguage } = useContext(LanguageContext);
-  const { isAuthenticated, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const toggleLanguage = () => {
@@ -23,7 +21,6 @@ const Header: React.FC = () => {
       });
 
       if (response.ok) {
-        logout();
         navigate('/');
       }
     } catch (error) {
@@ -46,31 +43,14 @@ const Header: React.FC = () => {
             <li>
               <Link to="/experiences">{t.header.experiences}</Link>
             </li>
-            <li>
-              <Link to="/opportunities">{t.header.opportunities}</Link>
-            </li>
+            
             <li>
               <Link to="/about">{t.header.about}</Link>
             </li>
             <li>
               <Link to="/donate">{t.header.donate}</Link>
             </li>
-            {isAuthenticated ? (
-              <>
-                <li>
-                  <Link to="/admin/dashboard">{t.header.dashboard}</Link>
-                </li>
-                <li>
-                  <button onClick={handleLogout} className="btn-link">
-                    {t.header.logout}
-                  </button>
-                </li>
-              </>
-            ) : (
-              <li>
-                <Link to="/admin/login">{t.header.login}</Link>
-              </li>
-            )}
+            
           </ul>
         </nav>
         <div className="language-toggle">

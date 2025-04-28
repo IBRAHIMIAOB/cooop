@@ -115,7 +115,7 @@ const ExperienceForm: React.FC<ExperienceFormProps> = ({ onSubmit }) => {
     });
   
     try {
-      const response = await fetch('/api/experiences.php', {
+      const response = await fetch('https://ibrahimalobaid.me/api/experiences.php', {
         method: 'POST',
         body: formDataToSend, // Send as FormData
       });

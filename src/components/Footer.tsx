@@ -21,13 +21,12 @@ const Footer: React.FC = () => {
           <div className="footer-section">
             <h3>{t.footer.contact}</h3>
             <p>{t.footer.contactText}</p>
-            <p>Email: contact@cooop.com</p>
+            <p>Email: contact@ibrahimalobaid.me</p>
           </div>
           <div className="footer-section">
             <h3>{t.footer.links}</h3>
             <ul >
               <li  className="btn"><a href="/experiences">{t.footer.experiences}</a></li>
-              <li  className="btn"><a href="/opportunities">{t.footer.opportunities}</a></li>
               <li  className="btn"><a href="/about">{t.footer.aboutUs}</a></li>
               <li  className="btn"><a href="/donate">{t.footer.donate}</a></li>
             </ul>
