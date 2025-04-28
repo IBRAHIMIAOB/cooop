@@ -45,7 +45,7 @@ const Experiences: React.FC = () => {
       if (filters.recommended) queryParams.append('recommended', 'true');
       if (filters.contracted) queryParams.append('contracted', 'true');
       
-      const response = await fetch(`/api/experiences?${queryParams.toString()}`);
+      const response = await fetch(`localhost/cooop/api/Get_experiences.php?${queryParams.toString()}`);
       const data = await response.json();
       
       if (response.ok) {

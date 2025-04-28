@@ -102,18 +102,26 @@ const ExperienceForm: React.FC<ExperienceFormProps> = ({ onSubmit }) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    
+  
+    const formDataToSend = new FormData();
+  
+    // Convert form data to FormData, handling booleans
+    Object.entries(formData).forEach(([key, value]) => {
+      if (typeof value === 'boolean') {
+        formDataToSend.append(key, value ? '1' : '0');
+      } else {
+        formDataToSend.append(key, value.toString());
+      }
+    });
+  
     try {
-      const response = await fetch('/api/experiences', {
+      const response = await fetch('/api/experiences.php', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        body: formDataToSend, // Send as FormData
       });
-      
-      const data = await response.json();
-      
+  
+      const result = await response.json();
+  
       if (response.ok) {
         setSuccess(true);
         setFormData({
@@ -132,16 +140,15 @@ const ExperienceForm: React.FC<ExperienceFormProps> = ({ onSubmit }) => {
           recommended: false,
           why_recommend: '',
           additional_info: '',
-          contracted: false
+          contracted: false,
         });
-        if (onSubmit) onSubmit(true);
+        onSubmit?.(true);
       } else {
-        setError(data.message || t.experienceForm.error);
-        if (onSubmit) onSubmit(false);
+        setError(result.error || t.common.error);
       }
-    } catch (err) {
-      setError(t.experienceForm.error);
-      if (onSubmit) onSubmit(false);
+    } catch (error) {
+      console.error('Fetch error:', error);
+      setError(t.common.error);
     } finally {
       setLoading(false);
     }
