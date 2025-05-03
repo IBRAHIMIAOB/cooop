@@ -44,8 +44,6 @@ const Experiences: React.FC = () => {
       if (filters.company) queryParams.append('company', filters.company);
       if (filters.recommended) queryParams.append('recommended', 'true');
       if (filters.contracted) queryParams.append('contracted', 'true');
-      console.log(new URL(`/api/Get_experiences.php?${queryParams.toString()}`, 'https://ibrahimalobaid.me').href);
-      console.log("HELLLO")
       const response = await fetch(new URL(`/api/Get_experiences.php?${queryParams.toString()}`, 'https://ibrahimalobaid.me').href);
       const data = await response.json();
       
